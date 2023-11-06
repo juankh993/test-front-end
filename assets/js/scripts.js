@@ -1,4 +1,100 @@
-const Words = [
+let resultElemente = document.querySelector('.result');
+let inputsLetter = document.querySelectorAll(".letter");
+
+inputsLetter.forEach((input, index) => {
+  input.addEventListener("input", (e) => {
+    if (input.value.length > 1) {
+      input.value = input.value[0];
+    }
+    if (index < inputs.length - 1 && input.value.length === 1) {
+      inputs[index + 1].focus();
+    }
+  });
+});
+
+
+let word = 'texto';
+//split cut the word
+let worArray = word.split('');
+console.log(worArray);
+
+let inputs = document.querySelectorAll('.letter');
+
+worArray.forEach((item, index) => {
+    if (index === 0) {
+        
+    }
+})
+
+let buttons = document.querySelectorAll('.button');
+let pressButton = document.querySelector('.keyboard');
+let win = document.getElementById('win');
+
+//convert note List to array and allow use more methods
+buttons = [...buttons];
+inputs = [...inputs];
+
+//Array empty for users
+let userInput = [];
+
+//know if press keyboard letter
+buttons.forEach(element => {
+    element.addEventListener('click', event=>{
+        //show value for user in lower case
+        userInput.push(event.target.value.toLowerCase());
+        console.log(userInput);
+         //equal arrays
+         if (userInput.length == worArray.length) {
+                console.log('ganaste')
+
+
+        }else {
+            // let equalLetter = compareArrays(worArray, userInput);
+            // equalLetter.forEach(element => {
+            //     pressButton[element].classList.add('green');
+            //     console.log(equalLetter);
+            // })
+          
+        }
+    })
+})
+
+//show letter in the input
+pressButton.addEventListener("click", function (event) {
+  const button = event.target;
+  if (button.tagName === "BUTTON") {
+    console.log("button" + button);
+    const letter = button.getAttribute("value");
+    console.log(letter);
+    const inputEmpty = Array.from(inputs).find((input) => !input.value);
+    if (inputEmpty) {
+        inputEmpty.value = letter;
+    }
+  }
+});
+
+//Functions 
+
+//compare arrays
+
+function compareArrays (array1, array2) {
+    let iqualsIndex = []
+    array1.forEach((element, index)=>{
+        if (element == array2[index]) {
+            console.log(`en la posicion ${index} si son iguales`);
+            iqualsIndex.push(index);
+        }else{
+            console.log(`en la posicion ${index} no son iguales`);
+
+        }
+        //return array eith index correct
+        return iqualsIndex;
+    });
+    
+    console.log(iqualsIndex);
+}
+
+        const Words = [
     'bulla',
     'neuma',
     'tasen',
